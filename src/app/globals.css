@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Table Styles for Markdown (Prose) */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: #f8fafc;
+  font-weight: 600;
+}
+
+/* Force specific hex colors for printing to avoid 'lab' color errors in html2canvas (Safety net) */
+#pdf-content {
+  --tw-prose-body: #334155;
+  --tw-prose-headings: #0f172a;
+  --tw-prose-lead: #475569;
+  --tw-prose-links: #0f172a;
+  --tw-prose-bold: #0f172a;
+  --tw-prose-counters: #64748b;
+  --tw-prose-bullets: #cbd5e1;
+  --tw-prose-hr: #e2e8f0;
+  --tw-prose-quotes: #0f172a;
+  --tw-prose-quote-borders: #e2e8f0;
+  --tw-prose-captions: #64748b;
+  --tw-prose-code: #0f172a;
+  --tw-prose-pre-code: #e2e8f0;
+  --tw-prose-pre-bg: #1e293b;
+  --tw-prose-th-borders: #e2e8f0;
+  --tw-prose-td-borders: #e2e8f0;
+  color: #334155;
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  body {
+    background: white;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+}
